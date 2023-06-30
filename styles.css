@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --switch-bg-url: url(./assets/sun.svg);
+  --bg-color: #252d3d;
+  --font-color: white;
+}
+.light {
+  --switch-bg-url: url(./assets/moon-stars.svg);
+  --bg-color: white;
+  --font-color: black;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+#container {
+  width: 100%;
+  margin: 56px auto 0px;
+  position: fixed;
+}
+
+#menu {
+  height: 40px;
+  background-color: rgb(25, 25, 25);
+  position: fixed;
+  border-radius: 10px;
+  left: 1%;
+  right: 1%;
+  top: 1%;
+  padding-right: 13px;
+}
+#switch button {
+  width: 25px;
+  height: 25px;
+  margin-top: 7.5px;
+  margin-left: 20px;
+  border: 0px;
+  border-radius: 50%;
+  background: var(--switch-bg-url) no-repeat center;
+  background-color: white;
+  position: absolute;
+  animation: slide-back 0.2s;
+  z-index: 1;
+}
+
+.light #switch button {
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 7.5px solid;
+  outline-color: rgba(189, 189, 189, 0.5);
+}
+
+#switch span {
+  margin-top: 12.5px;
+  margin-left: 20px;
+  display: block;
+  width: 50px;
+  height: 12.5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px;
+  border-radius: 10px;
+  border-color: white;
+  border-style: solid;
+  position: absolute;
+}
+
+#socials {
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  justify-content: right;
+}
+
+#socials a {
+  width: 25px;
+  height: 25px;
+  margin: 3px 10px;
+  font-size: 30px;
+}
+
+#git {
+  color: rgb(99, 99, 99);
+}
+
+#git :hover {
+  color: rgb(130, 48, 164);
+}
+
+#linkedin {
+  color: rgb(99, 99, 99);
+}
+
+#linkedin :hover {
+  color: rgb(0, 119, 183);
+}
+
+#wpp {
+  color: rgb(99, 99, 99);
+}
+
+#wpp :hover {
+  color: rgb(18, 151, 8);
+}
+
+#text {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 700;
+  color: #4070f4;
+}
+
+#text span {
+  margin: 15px 5px;
+  position: relative;
+}
+
+#first-txt {
+  color: var(--font-color);
+  z-index: 1;
+}
+
+#sec-txt:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-color);
+  border-left: 2px solid #4070f4;
+  animation: animate 4s steps(12) infinite;
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: #141922;
+  color: white;
+  font-size: xx-small;
+  bottom: 0vh;
+  padding: 20px 3px;
+}
+
+#footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#footer-about img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  border-color: antiquewhite;
+  border: 1px;
+  border-style: solid;
+}
+
+#footer-contact {
+  text-align: center;
+}
+
+#footer-contact a {
+  color: grey;
+  background-color: rgba(75, 75, 75, 0.25);
+  border: 1px;
+  border-radius: 10px;
+  border-color: white;
+  border-style: solid;
+  display: inline-block;
+  text-align: center;
+}
+#footer-contact ion-icon {
+  align-items: center;
+  justify-content: center;
+  color: yellow;
+  margin-top: 10px;
+  background-color: rgb(238, 54, 54);
+  border-radius: 50%;
+}
+
+@keyframes animate {
+  40%,
+  60% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 25px;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 25px;
+  }
+  to {
+    left: 0;
+  }
+}
