@@ -8,19 +8,22 @@
 
 :root {
   --switch-bg-url: url(./assets/sun.svg);
-  --bg-color: #252d3d;
   --font-color: white;
-  --footer-color: #1a1f2b;
+  --page-color: #1a1f2b;
+  --page-color-opacity: rgba(27, 32, 45, 0.8);
+  --bg-url: url(./assets/bg-mobile.jpg);
 }
 .light {
   --switch-bg-url: url(./assets/moon-stars.svg);
-  --bg-color: white;
   --font-color: black;
-  --footer-color: #4070f4;
+  --page-color: #4070f4;
+  --page-color-opacity: rgba(62, 111, 244, 0.8);
+  --bg-url: url(./assets/bg-mobile-light.jpg);
 }
 
 body {
-  background-color: var(--bg-color);
+  background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 #container {
@@ -31,7 +34,7 @@ body {
 
 #menu {
   height: 40px;
-  background-color: var(--footer-color);
+  background-color: var(--page-color-opacity);
   position: fixed;
   border-radius: 10px;
   left: 1%;
@@ -120,6 +123,7 @@ body {
   font-size: 40px;
   font-weight: 700;
   color: #4070f4;
+  padding: 0 5vw 0 5vw;
 }
 
 #text span {
@@ -132,16 +136,17 @@ body {
   z-index: 1;
 }
 
-#sec-txt:before {
-  content: "";
+#sec-txt {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
-  background-color: var(--bg-color);
-  border-left: 2px solid #4070f4;
-  animation: animate 4s steps(12) infinite;
+  width: 9ch;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #4070f4;
+  animation: typing 2s steps(18) infinite alternate-reverse,
+    blinking 0.5s infinite step-end alternate;
 }
 
 #home {
@@ -197,7 +202,7 @@ body {
 footer {
   position: fixed;
   width: 100%;
-  background-color: var(--footer-color);
+  background-color: var(--page-color-opacity);
   color: var(--font-color);
   font-size: xx-small;
   bottom: 0vh;
@@ -263,16 +268,28 @@ footer {
     display: none;
   }
 }
-
-@keyframes animate {
-  40%,
-  60% {
-    left: 100%;
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
   }
-  100% {
-    left: 0%;
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }
+
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+}
+
+@keyframes blinking {
+  50% {
+    border-color: transparent;
+  }
+}
+
 @keyframes slide-in {
   from {
     left: 0;
