@@ -174,9 +174,10 @@ body {
   justify-content: center;
   display: flex;
   flex: 1 1 200px;
-  flex-wrap: wrap;
+  flex-direction: column;
   text-decoration: none;
 }
+
 #about button {
   background-color: rgba(139, 139, 139, 0.5);
   border: 1px;
@@ -194,6 +195,7 @@ body {
 }
 
 footer {
+  position: fixed;
   width: 100%;
   background-color: var(--footer-color);
   color: var(--font-color);
